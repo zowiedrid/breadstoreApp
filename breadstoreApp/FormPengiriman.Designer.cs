@@ -45,15 +45,18 @@
             this.btAdd = new System.Windows.Forms.Button();
             this.btClear = new System.Windows.Forms.Button();
             this.dataGridViewAdmin = new System.Windows.Forms.DataGridView();
-            this.adminIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teleponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btSave = new System.Windows.Forms.Button();
+            this.pengirimanBahanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pengirimanBahanTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.PengirimanBahanTableAdapter();
+            this.pengirimanIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bahanIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jumlahDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanggalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pengirimanBahanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tbID
@@ -178,47 +181,16 @@
             this.dataGridViewAdmin.AutoGenerateColumns = false;
             this.dataGridViewAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.adminIDDataGridViewTextBoxColumn,
-            this.namaDataGridViewTextBoxColumn,
-            this.teleponDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn});
-            this.dataGridViewAdmin.DataMember = "Admin";
-            this.dataGridViewAdmin.DataSource = this.breadstoreDataSetBindingSource;
+            this.pengirimanIDDataGridViewTextBoxColumn,
+            this.suplierIDDataGridViewTextBoxColumn,
+            this.bahanIDDataGridViewTextBoxColumn,
+            this.jumlahDataGridViewTextBoxColumn,
+            this.tanggalDataGridViewTextBoxColumn});
+            this.dataGridViewAdmin.DataSource = this.pengirimanBahanBindingSource;
             this.dataGridViewAdmin.Location = new System.Drawing.Point(40, 12);
             this.dataGridViewAdmin.Name = "dataGridViewAdmin";
             this.dataGridViewAdmin.Size = new System.Drawing.Size(401, 426);
             this.dataGridViewAdmin.TabIndex = 30;
-            // 
-            // adminIDDataGridViewTextBoxColumn
-            // 
-            this.adminIDDataGridViewTextBoxColumn.DataPropertyName = "AdminID";
-            this.adminIDDataGridViewTextBoxColumn.HeaderText = "AdminID";
-            this.adminIDDataGridViewTextBoxColumn.Name = "adminIDDataGridViewTextBoxColumn";
-            // 
-            // namaDataGridViewTextBoxColumn
-            // 
-            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
-            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
-            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
-            // 
-            // teleponDataGridViewTextBoxColumn
-            // 
-            this.teleponDataGridViewTextBoxColumn.DataPropertyName = "Telepon";
-            this.teleponDataGridViewTextBoxColumn.HeaderText = "Telepon";
-            this.teleponDataGridViewTextBoxColumn.Name = "teleponDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             // 
             // btSave
             // 
@@ -228,6 +200,45 @@
             this.btSave.TabIndex = 32;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
+            // 
+            // pengirimanBahanBindingSource
+            // 
+            this.pengirimanBahanBindingSource.DataMember = "PengirimanBahan";
+            this.pengirimanBahanBindingSource.DataSource = this.breadstoreDataSetBindingSource;
+            // 
+            // pengirimanBahanTableAdapter
+            // 
+            this.pengirimanBahanTableAdapter.ClearBeforeFill = true;
+            // 
+            // pengirimanIDDataGridViewTextBoxColumn
+            // 
+            this.pengirimanIDDataGridViewTextBoxColumn.DataPropertyName = "PengirimanID";
+            this.pengirimanIDDataGridViewTextBoxColumn.HeaderText = "PengirimanID";
+            this.pengirimanIDDataGridViewTextBoxColumn.Name = "pengirimanIDDataGridViewTextBoxColumn";
+            // 
+            // suplierIDDataGridViewTextBoxColumn
+            // 
+            this.suplierIDDataGridViewTextBoxColumn.DataPropertyName = "SuplierID";
+            this.suplierIDDataGridViewTextBoxColumn.HeaderText = "SuplierID";
+            this.suplierIDDataGridViewTextBoxColumn.Name = "suplierIDDataGridViewTextBoxColumn";
+            // 
+            // bahanIDDataGridViewTextBoxColumn
+            // 
+            this.bahanIDDataGridViewTextBoxColumn.DataPropertyName = "BahanID";
+            this.bahanIDDataGridViewTextBoxColumn.HeaderText = "BahanID";
+            this.bahanIDDataGridViewTextBoxColumn.Name = "bahanIDDataGridViewTextBoxColumn";
+            // 
+            // jumlahDataGridViewTextBoxColumn
+            // 
+            this.jumlahDataGridViewTextBoxColumn.DataPropertyName = "Jumlah";
+            this.jumlahDataGridViewTextBoxColumn.HeaderText = "Jumlah";
+            this.jumlahDataGridViewTextBoxColumn.Name = "jumlahDataGridViewTextBoxColumn";
+            // 
+            // tanggalDataGridViewTextBoxColumn
+            // 
+            this.tanggalDataGridViewTextBoxColumn.DataPropertyName = "Tanggal";
+            this.tanggalDataGridViewTextBoxColumn.HeaderText = "Tanggal";
+            this.tanggalDataGridViewTextBoxColumn.Name = "tanggalDataGridViewTextBoxColumn";
             // 
             // FormPengiriman
             // 
@@ -251,9 +262,11 @@
             this.Controls.Add(this.btSave);
             this.Name = "FormPengiriman";
             this.Text = "FormPengiriman";
+            this.Load += new System.EventHandler(this.FormPengiriman_Load);
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pengirimanBahanBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,11 +290,13 @@
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Button btClear;
         private System.Windows.Forms.DataGridView dataGridViewAdmin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adminIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teleponDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.BindingSource pengirimanBahanBindingSource;
+        private breadstoreDataSetTableAdapters.PengirimanBahanTableAdapter pengirimanBahanTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pengirimanIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suplierIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bahanIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jumlahDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tanggalDataGridViewTextBoxColumn;
     }
 }

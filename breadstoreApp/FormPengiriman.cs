@@ -16,5 +16,12 @@ namespace breadstoreApp
         {
             InitializeComponent();
         }
+
+        private void FormPengiriman_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'breadstoreDataSet.PengirimanBahan' table. You can move, or remove it, as needed.
+            this.pengirimanBahanTableAdapter.Fill(this.breadstoreDataSet.PengirimanBahan);
+
+        }
     }
 }

@@ -16,5 +16,12 @@ namespace breadstoreApp
         {
             InitializeComponent();
         }
+
+        private void FormKaryawan_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'breadstoreDataSet.Karyawan' table. You can move, or remove it, as needed.
+            this.karyawanTableAdapter.Fill(this.breadstoreDataSet.Karyawan);
+
+        }
     }
 }

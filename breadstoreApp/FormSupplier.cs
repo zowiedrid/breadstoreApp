@@ -16,5 +16,12 @@ namespace breadstoreApp
         {
             InitializeComponent();
         }
+
+        private void FormSupplier_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'breadstoreDataSet.Suplier' table. You can move, or remove it, as needed.
+            this.suplierTableAdapter.Fill(this.breadstoreDataSet.Suplier);
+
+        }
     }
 }

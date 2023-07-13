@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbID = new System.Windows.Forms.TextBox();
             this.txID = new System.Windows.Forms.Label();
             this.tbTelepon = new System.Windows.Forms.TextBox();
@@ -39,7 +40,15 @@
             this.btOpen = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.dataGridViewAdmin = new System.Windows.Forms.DataGridView();
+            this.breadstoreDataSet = new breadstoreApp.breadstoreDataSet();
+            this.rotiBahanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rotiBahanTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.RotiBahanTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotiBahanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tbID
@@ -128,12 +137,49 @@
             // 
             // dataGridViewAdmin
             // 
+            this.dataGridViewAdmin.AutoGenerateColumns = false;
             this.dataGridViewAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAdmin.DataMember = "Admin";
+            this.dataGridViewAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewAdmin.DataSource = this.rotiBahanBindingSource;
             this.dataGridViewAdmin.Location = new System.Drawing.Point(40, 12);
             this.dataGridViewAdmin.Name = "dataGridViewAdmin";
             this.dataGridViewAdmin.Size = new System.Drawing.Size(401, 426);
             this.dataGridViewAdmin.TabIndex = 30;
+            // 
+            // breadstoreDataSet
+            // 
+            this.breadstoreDataSet.DataSetName = "breadstoreDataSet";
+            this.breadstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rotiBahanBindingSource
+            // 
+            this.rotiBahanBindingSource.DataMember = "RotiBahan";
+            this.rotiBahanBindingSource.DataSource = this.breadstoreDataSet;
+            // 
+            // rotiBahanTableAdapter
+            // 
+            this.rotiBahanTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RotiID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "RotiID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "BahanID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "BahanID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Jumlah";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Jumlah";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // FormBahanRoti
             // 
@@ -153,7 +199,10 @@
             this.Controls.Add(this.dataGridViewAdmin);
             this.Name = "FormBahanRoti";
             this.Text = "FormBahanRoti";
+            this.Load += new System.EventHandler(this.FormBahanRoti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotiBahanBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +221,11 @@
         private System.Windows.Forms.Button btOpen;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.DataGridView dataGridViewAdmin;
+        private breadstoreDataSet breadstoreDataSet;
+        private System.Windows.Forms.BindingSource rotiBahanBindingSource;
+        private breadstoreDataSetTableAdapters.RotiBahanTableAdapter rotiBahanTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

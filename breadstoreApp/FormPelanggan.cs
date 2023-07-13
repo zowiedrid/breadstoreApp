@@ -16,5 +16,12 @@ namespace breadstoreApp
         {
             InitializeComponent();
         }
+
+        private void FormPelanggan_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'breadstoreDataSet.Pelanggan' table. You can move, or remove it, as needed.
+            this.pelangganTableAdapter.Fill(this.breadstoreDataSet.Pelanggan);
+
+        }
     }
 }

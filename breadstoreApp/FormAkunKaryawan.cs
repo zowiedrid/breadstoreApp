@@ -21,5 +21,12 @@ namespace breadstoreApp
         {
 
         }
+
+        private void FormAkunKaryawan_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'breadstoreDataSet.AkunKaryawan' table. You can move, or remove it, as needed.
+            this.akunKaryawanTableAdapter.Fill(this.breadstoreDataSet.AkunKaryawan);
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbID = new System.Windows.Forms.TextBox();
             this.txID = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -41,7 +42,16 @@
             this.btOpen = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.dataGridViewAdmin = new System.Windows.Forms.DataGridView();
+            this.breadstoreDataSet = new breadstoreApp.breadstoreDataSet();
+            this.suplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.suplierTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.SuplierTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tbID
@@ -146,12 +156,56 @@
             // 
             // dataGridViewAdmin
             // 
+            this.dataGridViewAdmin.AutoGenerateColumns = false;
             this.dataGridViewAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAdmin.DataMember = "Admin";
+            this.dataGridViewAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dataGridViewAdmin.DataSource = this.suplierBindingSource;
             this.dataGridViewAdmin.Location = new System.Drawing.Point(40, 12);
             this.dataGridViewAdmin.Name = "dataGridViewAdmin";
             this.dataGridViewAdmin.Size = new System.Drawing.Size(401, 426);
             this.dataGridViewAdmin.TabIndex = 43;
+            // 
+            // breadstoreDataSet
+            // 
+            this.breadstoreDataSet.DataSetName = "breadstoreDataSet";
+            this.breadstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // suplierBindingSource
+            // 
+            this.suplierBindingSource.DataMember = "Suplier";
+            this.suplierBindingSource.DataSource = this.breadstoreDataSet;
+            // 
+            // suplierTableAdapter
+            // 
+            this.suplierTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SuplierID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "SuplierID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nama";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nama";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Telepon";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Telepon";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Alamat";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Alamat";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // FormSupplier
             // 
@@ -173,7 +227,10 @@
             this.Controls.Add(this.dataGridViewAdmin);
             this.Name = "FormSupplier";
             this.Text = "FormSupplier";
+            this.Load += new System.EventHandler(this.FormSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.suplierBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +251,12 @@
         private System.Windows.Forms.Button btOpen;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.DataGridView dataGridViewAdmin;
+        private breadstoreDataSet breadstoreDataSet;
+        private System.Windows.Forms.BindingSource suplierBindingSource;
+        private breadstoreDataSetTableAdapters.SuplierTableAdapter suplierTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

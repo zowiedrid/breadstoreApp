@@ -34,24 +34,26 @@
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.txEmail = new System.Windows.Forms.Label();
             this.tbTelepon = new System.Windows.Forms.TextBox();
-            this.adminIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txTelepon = new System.Windows.Forms.Label();
             this.btOpen = new System.Windows.Forms.Button();
-            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teleponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbNama = new System.Windows.Forms.TextBox();
             this.txNama = new System.Windows.Forms.Label();
             this.btClear = new System.Windows.Forms.Button();
             this.breadstoreDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.breadstoreDataSet = new breadstoreApp.breadstoreDataSet();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btAdd = new System.Windows.Forms.Button();
             this.dataGridViewAdmin = new System.Windows.Forms.DataGridView();
             this.btSave = new System.Windows.Forms.Button();
+            this.pelangganBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pelangganTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.PelangganTableAdapter();
+            this.pelangganIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teleponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alamatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pelangganBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tbID
@@ -93,12 +95,6 @@
             this.tbTelepon.Size = new System.Drawing.Size(170, 20);
             this.tbTelepon.TabIndex = 38;
             // 
-            // adminIDDataGridViewTextBoxColumn
-            // 
-            this.adminIDDataGridViewTextBoxColumn.DataPropertyName = "AdminID";
-            this.adminIDDataGridViewTextBoxColumn.HeaderText = "AdminID";
-            this.adminIDDataGridViewTextBoxColumn.Name = "adminIDDataGridViewTextBoxColumn";
-            // 
             // txTelepon
             // 
             this.txTelepon.AutoSize = true;
@@ -116,24 +112,6 @@
             this.btOpen.TabIndex = 31;
             this.btOpen.Text = "Open";
             this.btOpen.UseVisualStyleBackColor = true;
-            // 
-            // namaDataGridViewTextBoxColumn
-            // 
-            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
-            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
-            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
-            // 
-            // teleponDataGridViewTextBoxColumn
-            // 
-            this.teleponDataGridViewTextBoxColumn.DataPropertyName = "Telepon";
-            this.teleponDataGridViewTextBoxColumn.HeaderText = "Telepon";
-            this.teleponDataGridViewTextBoxColumn.Name = "teleponDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
             // tbNama
             // 
@@ -170,12 +148,6 @@
             this.breadstoreDataSet.DataSetName = "breadstoreDataSet";
             this.breadstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            // 
             // btAdd
             // 
             this.btAdd.Location = new System.Drawing.Point(590, 370);
@@ -190,13 +162,11 @@
             this.dataGridViewAdmin.AutoGenerateColumns = false;
             this.dataGridViewAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.adminIDDataGridViewTextBoxColumn,
+            this.pelangganIDDataGridViewTextBoxColumn,
             this.namaDataGridViewTextBoxColumn,
             this.teleponDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn});
-            this.dataGridViewAdmin.DataMember = "Admin";
-            this.dataGridViewAdmin.DataSource = this.breadstoreDataSetBindingSource;
+            this.alamatDataGridViewTextBoxColumn});
+            this.dataGridViewAdmin.DataSource = this.pelangganBindingSource;
             this.dataGridViewAdmin.Location = new System.Drawing.Point(40, 12);
             this.dataGridViewAdmin.Name = "dataGridViewAdmin";
             this.dataGridViewAdmin.Size = new System.Drawing.Size(401, 426);
@@ -210,6 +180,39 @@
             this.btSave.TabIndex = 32;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
+            // 
+            // pelangganBindingSource
+            // 
+            this.pelangganBindingSource.DataMember = "Pelanggan";
+            this.pelangganBindingSource.DataSource = this.breadstoreDataSetBindingSource;
+            // 
+            // pelangganTableAdapter
+            // 
+            this.pelangganTableAdapter.ClearBeforeFill = true;
+            // 
+            // pelangganIDDataGridViewTextBoxColumn
+            // 
+            this.pelangganIDDataGridViewTextBoxColumn.DataPropertyName = "PelangganID";
+            this.pelangganIDDataGridViewTextBoxColumn.HeaderText = "PelangganID";
+            this.pelangganIDDataGridViewTextBoxColumn.Name = "pelangganIDDataGridViewTextBoxColumn";
+            // 
+            // namaDataGridViewTextBoxColumn
+            // 
+            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
+            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
+            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
+            // 
+            // teleponDataGridViewTextBoxColumn
+            // 
+            this.teleponDataGridViewTextBoxColumn.DataPropertyName = "Telepon";
+            this.teleponDataGridViewTextBoxColumn.HeaderText = "Telepon";
+            this.teleponDataGridViewTextBoxColumn.Name = "teleponDataGridViewTextBoxColumn";
+            // 
+            // alamatDataGridViewTextBoxColumn
+            // 
+            this.alamatDataGridViewTextBoxColumn.DataPropertyName = "Alamat";
+            this.alamatDataGridViewTextBoxColumn.HeaderText = "Alamat";
+            this.alamatDataGridViewTextBoxColumn.Name = "alamatDataGridViewTextBoxColumn";
             // 
             // FormPelanggan
             // 
@@ -231,9 +234,11 @@
             this.Controls.Add(this.btSave);
             this.Name = "FormPelanggan";
             this.Text = "FormPelanggan";
+            this.Load += new System.EventHandler(this.FormPelanggan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pelangganBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,20 +251,21 @@
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label txEmail;
         private System.Windows.Forms.TextBox tbTelepon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adminIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label txTelepon;
         private System.Windows.Forms.Button btOpen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teleponDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox tbNama;
         private System.Windows.Forms.Label txNama;
         private System.Windows.Forms.Button btClear;
         private System.Windows.Forms.BindingSource breadstoreDataSetBindingSource;
         private breadstoreDataSet breadstoreDataSet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.DataGridView dataGridViewAdmin;
         private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.BindingSource pelangganBindingSource;
+        private breadstoreDataSetTableAdapters.PelangganTableAdapter pelangganTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pelangganIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teleponDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alamatDataGridViewTextBoxColumn;
     }
 }

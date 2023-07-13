@@ -16,5 +16,12 @@ namespace breadstoreApp
         {
             InitializeComponent();
         }
+
+        private void FormRoti_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'breadstoreDataSet.Roti' table. You can move, or remove it, as needed.
+            this.rotiTableAdapter.Fill(this.breadstoreDataSet.Roti);
+
+        }
     }
 }

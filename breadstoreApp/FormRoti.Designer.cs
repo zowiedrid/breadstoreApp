@@ -32,11 +32,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btAdd = new System.Windows.Forms.Button();
             this.dataGridViewAdmin = new System.Windows.Forms.DataGridView();
-            this.adminIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teleponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.breadstoreDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.breadstoreDataSet = new breadstoreApp.breadstoreDataSet();
             this.btSave = new System.Windows.Forms.Button();
@@ -51,9 +46,17 @@
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.txEmail = new System.Windows.Forms.Label();
             this.tbTelepon = new System.Windows.Forms.TextBox();
+            this.rotiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rotiTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.RotiTableAdapter();
+            this.rotiIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namaRotiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jenisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stokDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -77,47 +80,16 @@
             this.dataGridViewAdmin.AutoGenerateColumns = false;
             this.dataGridViewAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.adminIDDataGridViewTextBoxColumn,
-            this.namaDataGridViewTextBoxColumn,
-            this.teleponDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn});
-            this.dataGridViewAdmin.DataMember = "Admin";
-            this.dataGridViewAdmin.DataSource = this.breadstoreDataSetBindingSource;
+            this.rotiIDDataGridViewTextBoxColumn,
+            this.namaRotiDataGridViewTextBoxColumn,
+            this.jenisDataGridViewTextBoxColumn,
+            this.hargaDataGridViewTextBoxColumn,
+            this.stokDataGridViewTextBoxColumn});
+            this.dataGridViewAdmin.DataSource = this.rotiBindingSource;
             this.dataGridViewAdmin.Location = new System.Drawing.Point(40, 12);
             this.dataGridViewAdmin.Name = "dataGridViewAdmin";
             this.dataGridViewAdmin.Size = new System.Drawing.Size(401, 426);
             this.dataGridViewAdmin.TabIndex = 45;
-            // 
-            // adminIDDataGridViewTextBoxColumn
-            // 
-            this.adminIDDataGridViewTextBoxColumn.DataPropertyName = "AdminID";
-            this.adminIDDataGridViewTextBoxColumn.HeaderText = "AdminID";
-            this.adminIDDataGridViewTextBoxColumn.Name = "adminIDDataGridViewTextBoxColumn";
-            // 
-            // namaDataGridViewTextBoxColumn
-            // 
-            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
-            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
-            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
-            // 
-            // teleponDataGridViewTextBoxColumn
-            // 
-            this.teleponDataGridViewTextBoxColumn.DataPropertyName = "Telepon";
-            this.teleponDataGridViewTextBoxColumn.HeaderText = "Telepon";
-            this.teleponDataGridViewTextBoxColumn.Name = "teleponDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             // 
             // breadstoreDataSetBindingSource
             // 
@@ -229,6 +201,45 @@
             this.tbTelepon.Size = new System.Drawing.Size(170, 20);
             this.tbTelepon.TabIndex = 53;
             // 
+            // rotiBindingSource
+            // 
+            this.rotiBindingSource.DataMember = "Roti";
+            this.rotiBindingSource.DataSource = this.breadstoreDataSetBindingSource;
+            // 
+            // rotiTableAdapter
+            // 
+            this.rotiTableAdapter.ClearBeforeFill = true;
+            // 
+            // rotiIDDataGridViewTextBoxColumn
+            // 
+            this.rotiIDDataGridViewTextBoxColumn.DataPropertyName = "RotiID";
+            this.rotiIDDataGridViewTextBoxColumn.HeaderText = "RotiID";
+            this.rotiIDDataGridViewTextBoxColumn.Name = "rotiIDDataGridViewTextBoxColumn";
+            // 
+            // namaRotiDataGridViewTextBoxColumn
+            // 
+            this.namaRotiDataGridViewTextBoxColumn.DataPropertyName = "NamaRoti";
+            this.namaRotiDataGridViewTextBoxColumn.HeaderText = "NamaRoti";
+            this.namaRotiDataGridViewTextBoxColumn.Name = "namaRotiDataGridViewTextBoxColumn";
+            // 
+            // jenisDataGridViewTextBoxColumn
+            // 
+            this.jenisDataGridViewTextBoxColumn.DataPropertyName = "Jenis";
+            this.jenisDataGridViewTextBoxColumn.HeaderText = "Jenis";
+            this.jenisDataGridViewTextBoxColumn.Name = "jenisDataGridViewTextBoxColumn";
+            // 
+            // hargaDataGridViewTextBoxColumn
+            // 
+            this.hargaDataGridViewTextBoxColumn.DataPropertyName = "Harga";
+            this.hargaDataGridViewTextBoxColumn.HeaderText = "Harga";
+            this.hargaDataGridViewTextBoxColumn.Name = "hargaDataGridViewTextBoxColumn";
+            // 
+            // stokDataGridViewTextBoxColumn
+            // 
+            this.stokDataGridViewTextBoxColumn.DataPropertyName = "Stok";
+            this.stokDataGridViewTextBoxColumn.HeaderText = "Stok";
+            this.stokDataGridViewTextBoxColumn.Name = "stokDataGridViewTextBoxColumn";
+            // 
             // FormRoti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,9 +262,11 @@
             this.Controls.Add(this.tbTelepon);
             this.Name = "FormRoti";
             this.Text = "FormRoti";
+            this.Load += new System.EventHandler(this.FormRoti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotiBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,11 +277,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.DataGridView dataGridViewAdmin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adminIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teleponDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource breadstoreDataSetBindingSource;
         private breadstoreDataSet breadstoreDataSet;
         private System.Windows.Forms.Button btSave;
@@ -283,5 +291,12 @@
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label txEmail;
         private System.Windows.Forms.TextBox tbTelepon;
+        private System.Windows.Forms.BindingSource rotiBindingSource;
+        private breadstoreDataSetTableAdapters.RotiTableAdapter rotiTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rotiIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namaRotiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jenisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stokDataGridViewTextBoxColumn;
     }
 }
