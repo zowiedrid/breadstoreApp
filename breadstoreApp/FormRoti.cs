@@ -18,7 +18,7 @@ namespace breadstoreApp
             connection = new SqlConnection(connectionString);
             LoadDataRoti();
             ClearForm();
-            DisableForm();
+            EnableForm();
         }
 
         private void LoadDataRoti()
@@ -76,6 +76,18 @@ namespace breadstoreApp
             EnableForm();
         }
 
+        private void EnableForm()
+        {
+            tbNama.Enabled = true;
+            tbJenis.Enabled = true;
+            tbHarga.Enabled = true;
+            tbStok.Enabled = true;
+
+            btCreate.Enabled = true;
+            btUpdate.Enabled = true;
+            btDelete.Enabled = true;
+        }
+
         private void SaveChanges()
         {
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
@@ -89,34 +101,6 @@ namespace breadstoreApp
             tbHarga.Text = string.Empty;
             tbStok.Text = string.Empty;
             dataGridViewRoti.ClearSelection();
-        }
-
-        private void EnableForm()
-        {
-            tbNama.Enabled = true;
-            tbJenis.Enabled = true;
-            tbHarga.Enabled = true;
-            tbStok.Enabled = true;
-
-            btCreate.Enabled = true;
-            btUpdate.Enabled = true;
-            btDelete.Enabled = true;
-
-            dataGridViewRoti.Enabled = true;
-        }
-
-        private void DisableForm()
-        {
-            tbNama.Enabled = false;
-            tbJenis.Enabled = false;
-            tbHarga.Enabled = false;
-            tbStok.Enabled = false;
-
-            btCreate.Enabled = false;
-            btUpdate.Enabled = false;
-            btDelete.Enabled = false;
-
-            dataGridViewRoti.Enabled = false;
         }
     }
 }
