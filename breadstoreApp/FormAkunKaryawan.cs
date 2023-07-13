@@ -16,5 +16,10 @@ namespace breadstoreApp
         {
             InitializeComponent();
         }
+
+        private void dataGridViewAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
