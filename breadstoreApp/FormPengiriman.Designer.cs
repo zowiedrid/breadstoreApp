@@ -29,147 +29,231 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPengiriman));
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.txID = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.txEmail = new System.Windows.Forms.Label();
+            this.tbTelepon = new System.Windows.Forms.TextBox();
+            this.breadstoreDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.breadstoreDataSet = new breadstoreApp.breadstoreDataSet();
+            this.txTelepon = new System.Windows.Forms.Label();
+            this.btOpen = new System.Windows.Forms.Button();
+            this.tbNama = new System.Windows.Forms.TextBox();
+            this.txNama = new System.Windows.Forms.Label();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.btClear = new System.Windows.Forms.Button();
+            this.dataGridViewAdmin = new System.Windows.Forms.DataGridView();
+            this.adminIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teleponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btSave = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).BeginInit();
             this.SuspendLayout();
             // 
-            // bindingNavigator1
+            // tbID
             // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(800, 25);
-            this.bindingNavigator1.TabIndex = 0;
-            this.bindingNavigator1.Text = "bindingNavigator1";
+            this.tbID.Location = new System.Drawing.Point(590, 81);
+            this.tbID.Name = "tbID";
+            this.tbID.Size = new System.Drawing.Size(170, 20);
+            this.tbID.TabIndex = 44;
             // 
-            // bindingNavigatorMoveFirstItem
+            // txID
             // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.txID.AutoSize = true;
+            this.txID.Location = new System.Drawing.Point(475, 84);
+            this.txID.Name = "txID";
+            this.txID.Size = new System.Drawing.Size(18, 13);
+            this.txID.TabIndex = 43;
+            this.txID.Text = "ID";
             // 
-            // bindingNavigatorMovePreviousItem
+            // tbPassword
             // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.tbPassword.Location = new System.Drawing.Point(590, 247);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(170, 20);
+            this.tbPassword.TabIndex = 42;
             // 
-            // bindingNavigatorSeparator
+            // label4
             // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(475, 250);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "Password";
             // 
-            // bindingNavigatorPositionItem
+            // tbEmail
             // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            this.tbEmail.Location = new System.Drawing.Point(590, 202);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(170, 20);
+            this.tbEmail.TabIndex = 40;
             // 
-            // bindingNavigatorCountItem
+            // txEmail
             // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            this.txEmail.AutoSize = true;
+            this.txEmail.Location = new System.Drawing.Point(475, 205);
+            this.txEmail.Name = "txEmail";
+            this.txEmail.Size = new System.Drawing.Size(32, 13);
+            this.txEmail.TabIndex = 39;
+            this.txEmail.Text = "Email";
             // 
-            // bindingNavigatorSeparator1
+            // tbTelepon
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.tbTelepon.Location = new System.Drawing.Point(590, 161);
+            this.tbTelepon.Name = "tbTelepon";
+            this.tbTelepon.Size = new System.Drawing.Size(170, 20);
+            this.tbTelepon.TabIndex = 38;
             // 
-            // bindingNavigatorMoveNextItem
+            // breadstoreDataSetBindingSource
             // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.breadstoreDataSetBindingSource.DataSource = this.breadstoreDataSet;
+            this.breadstoreDataSetBindingSource.Position = 0;
             // 
-            // bindingNavigatorMoveLastItem
+            // breadstoreDataSet
             // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.breadstoreDataSet.DataSetName = "breadstoreDataSet";
+            this.breadstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bindingNavigatorSeparator2
+            // txTelepon
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.txTelepon.AutoSize = true;
+            this.txTelepon.Location = new System.Drawing.Point(475, 164);
+            this.txTelepon.Name = "txTelepon";
+            this.txTelepon.Size = new System.Drawing.Size(46, 13);
+            this.txTelepon.TabIndex = 37;
+            this.txTelepon.Text = "Telepon";
             // 
-            // bindingNavigatorAddNewItem
+            // btOpen
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.btOpen.Location = new System.Drawing.Point(476, 317);
+            this.btOpen.Name = "btOpen";
+            this.btOpen.Size = new System.Drawing.Size(75, 23);
+            this.btOpen.TabIndex = 31;
+            this.btOpen.Text = "Open";
+            this.btOpen.UseVisualStyleBackColor = true;
             // 
-            // bindingNavigatorDeleteItem
+            // tbNama
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.tbNama.Location = new System.Drawing.Point(590, 123);
+            this.tbNama.Name = "tbNama";
+            this.tbNama.Size = new System.Drawing.Size(170, 20);
+            this.tbNama.TabIndex = 36;
+            // 
+            // txNama
+            // 
+            this.txNama.AutoSize = true;
+            this.txNama.Location = new System.Drawing.Point(475, 126);
+            this.txNama.Name = "txNama";
+            this.txNama.Size = new System.Drawing.Size(35, 13);
+            this.txNama.TabIndex = 35;
+            this.txNama.Text = "Nama";
+            // 
+            // btAdd
+            // 
+            this.btAdd.Location = new System.Drawing.Point(590, 370);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(75, 23);
+            this.btAdd.TabIndex = 34;
+            this.btAdd.Text = "Add";
+            this.btAdd.UseVisualStyleBackColor = true;
+            // 
+            // btClear
+            // 
+            this.btClear.Location = new System.Drawing.Point(476, 370);
+            this.btClear.Name = "btClear";
+            this.btClear.Size = new System.Drawing.Size(75, 23);
+            this.btClear.TabIndex = 33;
+            this.btClear.Text = "Clear";
+            this.btClear.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewAdmin
+            // 
+            this.dataGridViewAdmin.AutoGenerateColumns = false;
+            this.dataGridViewAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.adminIDDataGridViewTextBoxColumn,
+            this.namaDataGridViewTextBoxColumn,
+            this.teleponDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn});
+            this.dataGridViewAdmin.DataMember = "Admin";
+            this.dataGridViewAdmin.DataSource = this.breadstoreDataSetBindingSource;
+            this.dataGridViewAdmin.Location = new System.Drawing.Point(40, 12);
+            this.dataGridViewAdmin.Name = "dataGridViewAdmin";
+            this.dataGridViewAdmin.Size = new System.Drawing.Size(401, 426);
+            this.dataGridViewAdmin.TabIndex = 30;
+            // 
+            // adminIDDataGridViewTextBoxColumn
+            // 
+            this.adminIDDataGridViewTextBoxColumn.DataPropertyName = "AdminID";
+            this.adminIDDataGridViewTextBoxColumn.HeaderText = "AdminID";
+            this.adminIDDataGridViewTextBoxColumn.Name = "adminIDDataGridViewTextBoxColumn";
+            // 
+            // namaDataGridViewTextBoxColumn
+            // 
+            this.namaDataGridViewTextBoxColumn.DataPropertyName = "Nama";
+            this.namaDataGridViewTextBoxColumn.HeaderText = "Nama";
+            this.namaDataGridViewTextBoxColumn.Name = "namaDataGridViewTextBoxColumn";
+            // 
+            // teleponDataGridViewTextBoxColumn
+            // 
+            this.teleponDataGridViewTextBoxColumn.DataPropertyName = "Telepon";
+            this.teleponDataGridViewTextBoxColumn.HeaderText = "Telepon";
+            this.teleponDataGridViewTextBoxColumn.Name = "teleponDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
+            // btSave
+            // 
+            this.btSave.Location = new System.Drawing.Point(590, 317);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(75, 23);
+            this.btSave.TabIndex = 32;
+            this.btSave.Text = "Save";
+            this.btSave.UseVisualStyleBackColor = true;
             // 
             // FormPengiriman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.bindingNavigator1);
+            this.Controls.Add(this.tbID);
+            this.Controls.Add(this.txID);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.txEmail);
+            this.Controls.Add(this.tbTelepon);
+            this.Controls.Add(this.txTelepon);
+            this.Controls.Add(this.btOpen);
+            this.Controls.Add(this.tbNama);
+            this.Controls.Add(this.txNama);
+            this.Controls.Add(this.btAdd);
+            this.Controls.Add(this.btClear);
+            this.Controls.Add(this.dataGridViewAdmin);
+            this.Controls.Add(this.btSave);
             this.Name = "FormPengiriman";
             this.Text = "FormPengiriman";
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,17 +261,27 @@
 
         #endregion
 
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label txID;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.Label txEmail;
+        private System.Windows.Forms.TextBox tbTelepon;
+        private System.Windows.Forms.BindingSource breadstoreDataSetBindingSource;
+        private breadstoreDataSet breadstoreDataSet;
+        private System.Windows.Forms.Label txTelepon;
+        private System.Windows.Forms.Button btOpen;
+        private System.Windows.Forms.TextBox tbNama;
+        private System.Windows.Forms.Label txNama;
+        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.DataGridView dataGridViewAdmin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adminIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teleponDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btSave;
     }
 }
