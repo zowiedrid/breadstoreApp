@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tbStok = new System.Windows.Forms.TextBox();
-            this.btAdd = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
             this.dataGridViewRoti = new System.Windows.Forms.DataGridView();
             this.rotiIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaRotiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,10 +40,10 @@
             this.rotiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.breadstoreDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.breadstoreDataSet = new breadstoreApp.breadstoreDataSet();
-            this.btSave = new System.Windows.Forms.Button();
+            this.btCreate = new System.Windows.Forms.Button();
             this.tbNama = new System.Windows.Forms.TextBox();
             this.txNama = new System.Windows.Forms.Label();
-            this.btClear = new System.Windows.Forms.Button();
+            this.btUpdate = new System.Windows.Forms.Button();
             this.txJenis = new System.Windows.Forms.Label();
             this.btOpen = new System.Windows.Forms.Button();
             this.txStok = new System.Windows.Forms.Label();
@@ -65,17 +65,16 @@
             this.tbStok.Name = "tbStok";
             this.tbStok.Size = new System.Drawing.Size(170, 20);
             this.tbStok.TabIndex = 59;
+            // 
+            // btDelete
+            // 
+            this.btDelete.Location = new System.Drawing.Point(590, 370);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(75, 23);
+            this.btDelete.TabIndex = 49;
+            this.btDelete.Text = "Delete";
+            this.btDelete.UseVisualStyleBackColor = true;
 
-            // 
-            // btAdd
-            // 
-            this.btAdd.Location = new System.Drawing.Point(590, 370);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(75, 23);
-            this.btAdd.TabIndex = 49;
-            this.btAdd.Text = "Add";
-            this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // dataGridViewRoti
             // 
@@ -92,7 +91,6 @@
             this.dataGridViewRoti.Name = "dataGridViewRoti";
             this.dataGridViewRoti.Size = new System.Drawing.Size(401, 426);
             this.dataGridViewRoti.TabIndex = 45;
-
             // 
             // rotiIDDataGridViewTextBoxColumn
             // 
@@ -139,15 +137,15 @@
             this.breadstoreDataSet.DataSetName = "breadstoreDataSet";
             this.breadstoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btSave
+            // btCreate
             // 
-            this.btSave.Location = new System.Drawing.Point(590, 317);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(75, 23);
-            this.btSave.TabIndex = 47;
-            this.btSave.Text = "Save";
-            this.btSave.UseVisualStyleBackColor = true;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            this.btCreate.Location = new System.Drawing.Point(590, 317);
+            this.btCreate.Name = "btCreate";
+            this.btCreate.Size = new System.Drawing.Size(75, 23);
+            this.btCreate.TabIndex = 47;
+            this.btCreate.Text = "Create";
+            this.btCreate.UseVisualStyleBackColor = true;
+    
             // 
             // tbNama
             // 
@@ -155,7 +153,6 @@
             this.tbNama.Name = "tbNama";
             this.tbNama.Size = new System.Drawing.Size(170, 20);
             this.tbNama.TabIndex = 51;
-
             // 
             // txNama
             // 
@@ -166,15 +163,15 @@
             this.txNama.TabIndex = 50;
             this.txNama.Text = "Nama";
             // 
-            // btClear
+            // btUpdate
             // 
-            this.btClear.Location = new System.Drawing.Point(476, 370);
-            this.btClear.Name = "btClear";
-            this.btClear.Size = new System.Drawing.Size(75, 23);
-            this.btClear.TabIndex = 48;
-            this.btClear.Text = "Clear";
-            this.btClear.UseVisualStyleBackColor = true;
-            this.btClear.Click += new System.EventHandler(this.btClear_Click);
+            this.btUpdate.Location = new System.Drawing.Point(476, 370);
+            this.btUpdate.Name = "btUpdate";
+            this.btUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btUpdate.TabIndex = 48;
+            this.btUpdate.Text = "Update";
+            this.btUpdate.UseVisualStyleBackColor = true;
+  
             // 
             // txJenis
             // 
@@ -193,7 +190,6 @@
             this.btOpen.TabIndex = 46;
             this.btOpen.Text = "Open";
             this.btOpen.UseVisualStyleBackColor = true;
-
             // 
             // txStok
             // 
@@ -210,7 +206,6 @@
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(170, 20);
             this.tbID.TabIndex = 57;
-
             // 
             // txID
             // 
@@ -227,7 +222,6 @@
             this.tbHarga.Name = "tbHarga";
             this.tbHarga.Size = new System.Drawing.Size(170, 20);
             this.tbHarga.TabIndex = 55;
-
             // 
             // txHarga
             // 
@@ -244,7 +238,6 @@
             this.tbJenis.Name = "tbJenis";
             this.tbJenis.Size = new System.Drawing.Size(170, 20);
             this.tbJenis.TabIndex = 53;
-
             // 
             // rotiTableAdapter
             // 
@@ -256,12 +249,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tbStok);
-            this.Controls.Add(this.btAdd);
+            this.Controls.Add(this.btDelete);
             this.Controls.Add(this.dataGridViewRoti);
-            this.Controls.Add(this.btSave);
+            this.Controls.Add(this.btCreate);
             this.Controls.Add(this.tbNama);
             this.Controls.Add(this.txNama);
-            this.Controls.Add(this.btClear);
+            this.Controls.Add(this.btUpdate);
             this.Controls.Add(this.txJenis);
             this.Controls.Add(this.btOpen);
             this.Controls.Add(this.txStok);
@@ -272,7 +265,6 @@
             this.Controls.Add(this.tbJenis);
             this.Name = "FormRoti";
             this.Text = "FormRoti";
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoti)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).EndInit();
@@ -285,14 +277,14 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbStok;
-        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.DataGridView dataGridViewRoti;
         private System.Windows.Forms.BindingSource breadstoreDataSetBindingSource;
         private breadstoreDataSet breadstoreDataSet;
-        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Button btCreate;
         private System.Windows.Forms.TextBox tbNama;
         private System.Windows.Forms.Label txNama;
-        private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Label txJenis;
         private System.Windows.Forms.Button btOpen;
         private System.Windows.Forms.Label txStok;

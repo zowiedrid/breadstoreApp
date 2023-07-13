@@ -17,6 +17,8 @@ namespace breadstoreApp
             InitializeComponent();
             connection = new SqlConnection(connectionString);
             LoadDataRoti();
+            ClearForm();
+            DisableForm();
         }
 
         private void LoadDataRoti()
@@ -27,17 +29,7 @@ namespace breadstoreApp
             dataGridViewRoti.DataSource = rotiTable;
         }
 
-        private void btSave_Click(object sender, EventArgs e)
-        {
-            SaveChanges();
-        }
-
-        private void btClear_Click(object sender, EventArgs e)
-        {
-            ClearForm();
-        }
-
-        private void btAdd_Click(object sender, EventArgs e)
+        private void btCreate_Click(object sender, EventArgs e)
         {
             DataRow newRow = rotiTable.NewRow();
             newRow["NamaRoti"] = tbNama.Text;
@@ -79,6 +71,11 @@ namespace breadstoreApp
             }
         }
 
+        private void btOpen_Click(object sender, EventArgs e)
+        {
+            EnableForm();
+        }
+
         private void SaveChanges()
         {
             SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
@@ -92,6 +89,34 @@ namespace breadstoreApp
             tbHarga.Text = string.Empty;
             tbStok.Text = string.Empty;
             dataGridViewRoti.ClearSelection();
+        }
+
+        private void EnableForm()
+        {
+            tbNama.Enabled = true;
+            tbJenis.Enabled = true;
+            tbHarga.Enabled = true;
+            tbStok.Enabled = true;
+
+            btCreate.Enabled = true;
+            btUpdate.Enabled = true;
+            btDelete.Enabled = true;
+
+            dataGridViewRoti.Enabled = true;
+        }
+
+        private void DisableForm()
+        {
+            tbNama.Enabled = false;
+            tbJenis.Enabled = false;
+            tbHarga.Enabled = false;
+            tbStok.Enabled = false;
+
+            btCreate.Enabled = false;
+            btUpdate.Enabled = false;
+            btDelete.Enabled = false;
+
+            dataGridViewRoti.Enabled = false;
         }
     }
 }
