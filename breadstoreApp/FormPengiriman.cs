@@ -23,5 +23,15 @@ namespace breadstoreApp
             this.pengirimanBahanTableAdapter.Fill(this.breadstoreDataSet.PengirimanBahan);
 
         }
+
+        private void dataGridViewAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tbID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

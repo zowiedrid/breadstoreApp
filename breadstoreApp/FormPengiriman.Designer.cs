@@ -45,14 +45,14 @@
             this.btAdd = new System.Windows.Forms.Button();
             this.btClear = new System.Windows.Forms.Button();
             this.dataGridViewAdmin = new System.Windows.Forms.DataGridView();
-            this.btSave = new System.Windows.Forms.Button();
-            this.pengirimanBahanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pengirimanBahanTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.PengirimanBahanTableAdapter();
             this.pengirimanIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.suplierIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bahanIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jumlahDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tanggalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pengirimanBahanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btSave = new System.Windows.Forms.Button();
+            this.pengirimanBahanTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.PengirimanBahanTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).BeginInit();
@@ -65,6 +65,7 @@
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(170, 20);
             this.tbID.TabIndex = 44;
+            this.tbID.TextChanged += new System.EventHandler(this.tbID_TextChanged);
             // 
             // txID
             // 
@@ -191,24 +192,7 @@
             this.dataGridViewAdmin.Name = "dataGridViewAdmin";
             this.dataGridViewAdmin.Size = new System.Drawing.Size(401, 426);
             this.dataGridViewAdmin.TabIndex = 30;
-            // 
-            // btSave
-            // 
-            this.btSave.Location = new System.Drawing.Point(590, 317);
-            this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(75, 23);
-            this.btSave.TabIndex = 32;
-            this.btSave.Text = "Save";
-            this.btSave.UseVisualStyleBackColor = true;
-            // 
-            // pengirimanBahanBindingSource
-            // 
-            this.pengirimanBahanBindingSource.DataMember = "PengirimanBahan";
-            this.pengirimanBahanBindingSource.DataSource = this.breadstoreDataSetBindingSource;
-            // 
-            // pengirimanBahanTableAdapter
-            // 
-            this.pengirimanBahanTableAdapter.ClearBeforeFill = true;
+            this.dataGridViewAdmin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAdmin_CellContentClick);
             // 
             // pengirimanIDDataGridViewTextBoxColumn
             // 
@@ -239,6 +223,24 @@
             this.tanggalDataGridViewTextBoxColumn.DataPropertyName = "Tanggal";
             this.tanggalDataGridViewTextBoxColumn.HeaderText = "Tanggal";
             this.tanggalDataGridViewTextBoxColumn.Name = "tanggalDataGridViewTextBoxColumn";
+            // 
+            // pengirimanBahanBindingSource
+            // 
+            this.pengirimanBahanBindingSource.DataMember = "PengirimanBahan";
+            this.pengirimanBahanBindingSource.DataSource = this.breadstoreDataSetBindingSource;
+            // 
+            // btSave
+            // 
+            this.btSave.Location = new System.Drawing.Point(590, 317);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(75, 23);
+            this.btSave.TabIndex = 32;
+            this.btSave.Text = "Save";
+            this.btSave.UseVisualStyleBackColor = true;
+            // 
+            // pengirimanBahanTableAdapter
+            // 
+            this.pengirimanBahanTableAdapter.ClearBeforeFill = true;
             // 
             // FormPengiriman
             // 
