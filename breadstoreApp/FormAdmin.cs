@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace breadstoreApp
 {
@@ -26,6 +25,11 @@ namespace breadstoreApp
             adminTable = new DataTable();
             adapter.Fill(adminTable);
             dataGridViewAdmin.DataSource = adminTable;
+
+            // Populate the comboBoxAdminID with AdminID values from the database
+            comboBoxAdminID.DataSource = adminTable;
+            comboBoxAdminID.DisplayMember = "AdminID";
+            comboBoxAdminID.ValueMember = "AdminID";
         }
 
         private void btOpen_Click(object sender, EventArgs e)
@@ -35,7 +39,7 @@ namespace breadstoreApp
 
         private void btCreate_Click(object sender, EventArgs e)
         {
-            string id = tbID.Text;
+            string id = comboBoxAdminID.Text; // Use selected value from comboBoxAdminID
             string nama = tbNama.Text;
             string telepon = tbTelepon.Text;
             string email = tbEmail.Text;
@@ -65,7 +69,7 @@ namespace breadstoreApp
         {
             if (dataGridViewAdmin.SelectedRows.Count > 0)
             {
-                string id = dataGridViewAdmin.SelectedRows[0].Cells["AdminID"].Value.ToString();
+                string id = comboBoxAdminID.Text; // Use selected value from comboBoxAdminID
                 string nama = tbNama.Text;
                 string telepon = tbTelepon.Text;
                 string email = tbEmail.Text;
@@ -73,22 +77,48 @@ namespace breadstoreApp
 
                 using (SqlConnection connection = new SqlConnection(stringConnection))
                 {
-                    string query = "UPDATE Admin SET Nama = @Nama, Telepon = @Telepon, Email = @Email, Password = @Password WHERE AdminID = @AdminID";
-
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Nama", nama);
-                    command.Parameters.AddWithValue("@Telepon", telepon);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password);
-                    command.Parameters.AddWithValue("@AdminID", id);
-
                     connection.Open();
 
-                    command.ExecuteNonQuery();
-                }
+                    // Cek apakah ID admin yang akan di-update digunakan dalam tabel lain
+                    string checkReferenceQuery = "SELECT COUNT(*) FROM AkunKaryawan WHERE AdminID = @AdminID";
+                    SqlCommand checkReferenceCommand = new SqlCommand(checkReferenceQuery, connection);
+                    checkReferenceCommand.Parameters.AddWithValue("@AdminID", id);
+                    int referenceCount = (int)checkReferenceCommand.ExecuteScalar();
 
-                LoadDataAdmin();
-                ClearForm();
+                    if (referenceCount > 0)
+                    {
+                        MessageBox.Show("Tidak dapat mengubah data. ID admin digunakan dalam tabel lain.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string updateQuery = "UPDATE Admin SET Nama = @Nama, Telepon = @Telepon, Email = @Email, Password = @Password WHERE AdminID = @AdminID";
+                    SqlCommand updateCommand = new SqlCommand(updateQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@Nama", nama);
+                    updateCommand.Parameters.AddWithValue("@Telepon", telepon);
+                    updateCommand.Parameters.AddWithValue("@Email", email);
+                    updateCommand.Parameters.AddWithValue("@Password", password);
+                    updateCommand.Parameters.AddWithValue("@AdminID", id);
+
+                    try
+                    {
+                        int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data berhasil di-update.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataAdmin();
+                            ClearForm();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal meng-update data. Periksa kembali ID admin yang dimasukkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Terjadi kesalahan saat meng-update data: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -96,28 +126,56 @@ namespace breadstoreApp
         {
             if (dataGridViewAdmin.SelectedRows.Count > 0)
             {
-                string id = dataGridViewAdmin.SelectedRows[0].Cells["AdminID"].Value.ToString();
+                // Get the selected AdminID from the comboBoxAdminID
+                string id = comboBoxAdminID.SelectedValue.ToString();
 
                 using (SqlConnection connection = new SqlConnection(stringConnection))
                 {
-                    string query = "DELETE FROM Admin WHERE AdminID = @AdminID";
-
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@AdminID", id);
-
                     connection.Open();
 
-                    command.ExecuteNonQuery();
-                }
+                    // Cek apakah ID admin yang akan dihapus digunakan dalam tabel lain
+                    string checkReferenceQuery = "SELECT COUNT(*) FROM AkunKaryawan WHERE AdminID = @AdminID";
+                    SqlCommand checkReferenceCommand = new SqlCommand(checkReferenceQuery, connection);
+                    checkReferenceCommand.Parameters.AddWithValue("@AdminID", id);
+                    int referenceCount = (int)checkReferenceCommand.ExecuteScalar();
 
-                LoadDataAdmin();
-                ClearForm();
+                    if (referenceCount > 0)
+                    {
+                        MessageBox.Show("Tidak dapat menghapus data. ID admin digunakan dalam tabel lain.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string deleteQuery = "DELETE FROM Admin WHERE AdminID = @AdminID";
+                    SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection);
+                    deleteCommand.Parameters.AddWithValue("@AdminID", id);
+
+                    try
+                    {
+                        int rowsAffected = deleteCommand.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data berhasil dihapus.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataAdmin();
+                            ClearForm();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal menghapus data. Periksa kembali ID admin yang dipilih.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Terjadi kesalahan saat menghapus data: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
+
         private void EnableForm()
         {
-            tbID.Enabled = true;
+            comboBoxAdminID.Enabled = true;
             tbNama.Enabled = true;
             tbTelepon.Enabled = true;
             tbEmail.Enabled = true;
@@ -134,13 +192,12 @@ namespace breadstoreApp
 
         private void ClearForm()
         {
-            tbID.Text = string.Empty;
+            comboBoxAdminID.SelectedIndex = -1;
             tbNama.Text = string.Empty;
             tbTelepon.Text = string.Empty;
             tbEmail.Text = string.Empty;
             tbPassword.Text = string.Empty;
             dataGridViewAdmin.ClearSelection();
         }
-
     }
 }

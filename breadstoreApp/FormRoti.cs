@@ -31,14 +31,29 @@ namespace breadstoreApp
 
         private void btCreate_Click(object sender, EventArgs e)
         {
-            DataRow newRow = rotiTable.NewRow();
-            newRow["NamaRoti"] = tbNama.Text;
-            newRow["Jenis"] = tbJenis.Text;
-            newRow["Harga"] = tbHarga.Text;
-            newRow["Stok"] = tbStok.Text;
-            rotiTable.Rows.Add(newRow);
+            string id = tbID.Text;
+            string nama = tbNama.Text;
+            string jenis = tbJenis.Text;
+            string harga = tbHarga.Text;
+            int stok = Convert.ToInt32(tbStok.Text);
 
-            SaveChanges();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Roti (RotiID, NamaRoti, Jenis, Harga, Stok) VALUES (@RotiID, @NamaRoti, @Jenis, @Harga, @Stok)";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@RotiID", id);
+                command.Parameters.AddWithValue("@NamaRoti", nama);
+                command.Parameters.AddWithValue("@Jenis", jenis);
+                command.Parameters.AddWithValue("@Harga", harga);
+                command.Parameters.AddWithValue("@Stok", stok);
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+            }
+
+            LoadDataRoti();
             ClearForm();
         }
 
@@ -46,15 +61,44 @@ namespace breadstoreApp
         {
             if (dataGridViewRoti.SelectedRows.Count > 0)
             {
-                int selectedIndex = dataGridViewRoti.SelectedRows[0].Index;
-                DataRow row = rotiTable.Rows[selectedIndex];
-                row["NamaRoti"] = tbNama.Text;
-                row["Jenis"] = tbJenis.Text;
-                row["Harga"] = tbHarga.Text;
-                row["Stok"] = tbStok.Text;
+                string id = tbID.Text;
+                string nama = tbNama.Text;
+                string jenis = tbJenis.Text;
+                string harga = tbHarga.Text;
+                int stok = Convert.ToInt32(tbStok.Text);
 
-                SaveChanges();
-                ClearForm();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string updateQuery = "UPDATE Roti SET NamaRoti = @NamaRoti, Jenis = @Jenis, Harga = @Harga, Stok = @Stok WHERE RotiID = @RotiID";
+                    SqlCommand updateCommand = new SqlCommand(updateQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@NamaRoti", nama);
+                    updateCommand.Parameters.AddWithValue("@Jenis", jenis);
+                    updateCommand.Parameters.AddWithValue("@Harga", harga);
+                    updateCommand.Parameters.AddWithValue("@Stok", stok);
+                    updateCommand.Parameters.AddWithValue("@RotiID", id);
+
+                    try
+                    {
+                        int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data berhasil di-update.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataRoti();
+                            ClearForm();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal meng-update data. Periksa kembali ID Roti yang dimasukkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Terjadi kesalahan saat meng-update data: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -62,12 +106,36 @@ namespace breadstoreApp
         {
             if (dataGridViewRoti.SelectedRows.Count > 0)
             {
-                int selectedIndex = dataGridViewRoti.SelectedRows[0].Index;
-                DataRow row = rotiTable.Rows[selectedIndex];
-                row.Delete();
+                string id = tbID.Text;
 
-                SaveChanges();
-                ClearForm();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string deleteQuery = "DELETE FROM Roti WHERE RotiID = @RotiID";
+                    SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection);
+                    deleteCommand.Parameters.AddWithValue("@RotiID", id);
+
+                    try
+                    {
+                        int rowsAffected = deleteCommand.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data berhasil dihapus.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataRoti();
+                            ClearForm();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal menghapus data. Periksa kembali ID Roti yang dimasukkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Terjadi kesalahan saat menghapus data: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -78,6 +146,7 @@ namespace breadstoreApp
 
         private void EnableForm()
         {
+            tbID.Enabled = true;
             tbNama.Enabled = true;
             tbJenis.Enabled = true;
             tbHarga.Enabled = true;
@@ -96,11 +165,14 @@ namespace breadstoreApp
 
         private void ClearForm()
         {
+            tbID.Text = string.Empty;
             tbNama.Text = string.Empty;
             tbJenis.Text = string.Empty;
-            tbHarga.Text = string.Empty;
-            tbStok.Text = string.Empty;
-            dataGridViewRoti.ClearSelection();
+                }
+
+        private void dataGridViewRoti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

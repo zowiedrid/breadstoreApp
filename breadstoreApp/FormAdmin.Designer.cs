@@ -48,11 +48,11 @@
             this.txEmail = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbID = new System.Windows.Forms.TextBox();
             this.txID = new System.Windows.Forms.Label();
             this.adminTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.AdminTableAdapter();
             this.btUpdate = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
+            this.comboBoxAdminID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adminBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).BeginInit();
@@ -61,6 +61,7 @@
             // 
             // dataGridViewAdmin
             // 
+            this.dataGridViewAdmin.AllowUserToOrderColumns = true;
             this.dataGridViewAdmin.AutoGenerateColumns = false;
             this.dataGridViewAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -203,13 +204,6 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Password";
             // 
-            // tbID
-            // 
-            this.tbID.Location = new System.Drawing.Point(562, 81);
-            this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(170, 20);
-            this.tbID.TabIndex = 14;
-            // 
             // txID
             // 
             this.txID.AutoSize = true;
@@ -241,14 +235,22 @@
             this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = true;
             // 
+            // comboBoxAdminID
+            // 
+            this.comboBoxAdminID.FormattingEnabled = true;
+            this.comboBoxAdminID.Location = new System.Drawing.Point(562, 81);
+            this.comboBoxAdminID.Name = "comboBoxAdminID";
+            this.comboBoxAdminID.Size = new System.Drawing.Size(170, 21);
+            this.comboBoxAdminID.TabIndex = 17;
+            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBoxAdminID);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btUpdate);
-            this.Controls.Add(this.tbID);
             this.Controls.Add(this.txID);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label4);
@@ -285,7 +287,6 @@
         private System.Windows.Forms.Label txEmail;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label txID;
         private System.Windows.Forms.BindingSource breadstoreDataSetBindingSource;
         private breadstoreDataSet breadstoreDataSet;
@@ -298,5 +299,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btUpdate;
         private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.ComboBox comboBoxAdminID;
     }
 }

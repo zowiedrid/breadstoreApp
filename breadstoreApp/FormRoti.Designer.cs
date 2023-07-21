@@ -53,10 +53,12 @@
             this.txHarga = new System.Windows.Forms.Label();
             this.tbJenis = new System.Windows.Forms.TextBox();
             this.rotiTableAdapter = new breadstoreApp.breadstoreDataSetTableAdapters.RotiTableAdapter();
+            this.rotiBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotiBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbStok
@@ -74,7 +76,6 @@
             this.btDelete.TabIndex = 49;
             this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = true;
-
             // 
             // dataGridViewRoti
             // 
@@ -86,11 +87,12 @@
             this.jenisDataGridViewTextBoxColumn,
             this.hargaDataGridViewTextBoxColumn,
             this.stokDataGridViewTextBoxColumn});
-            this.dataGridViewRoti.DataSource = this.rotiBindingSource;
-            this.dataGridViewRoti.Location = new System.Drawing.Point(40, 12);
+            this.dataGridViewRoti.DataSource = this.rotiBindingSource1;
+            this.dataGridViewRoti.Location = new System.Drawing.Point(29, 12);
             this.dataGridViewRoti.Name = "dataGridViewRoti";
             this.dataGridViewRoti.Size = new System.Drawing.Size(401, 426);
             this.dataGridViewRoti.TabIndex = 45;
+            this.dataGridViewRoti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRoti_CellContentClick);
             // 
             // rotiIDDataGridViewTextBoxColumn
             // 
@@ -145,7 +147,6 @@
             this.btCreate.TabIndex = 47;
             this.btCreate.Text = "Create";
             this.btCreate.UseVisualStyleBackColor = true;
-    
             // 
             // tbNama
             // 
@@ -171,7 +172,6 @@
             this.btUpdate.TabIndex = 48;
             this.btUpdate.Text = "Update";
             this.btUpdate.UseVisualStyleBackColor = true;
-  
             // 
             // txJenis
             // 
@@ -243,6 +243,11 @@
             // 
             this.rotiTableAdapter.ClearBeforeFill = true;
             // 
+            // rotiBindingSource1
+            // 
+            this.rotiBindingSource1.DataMember = "Roti";
+            this.rotiBindingSource1.DataSource = this.breadstoreDataSetBindingSource;
+            // 
             // FormRoti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rotiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadstoreDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rotiBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +306,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jenisDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stokDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource rotiBindingSource1;
     }
 }
